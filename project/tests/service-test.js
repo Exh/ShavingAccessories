@@ -9,7 +9,7 @@ suite('Check unit system', function () {
     });
 
     test('Check test', function(){
-        assert.equal(7, 8);
+        assert.equal(8, 8);
     });
 
 });
