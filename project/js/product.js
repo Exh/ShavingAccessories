@@ -2,8 +2,8 @@
 
 class Product
 {
-    constructor(){
-        this._title = "Shaver";
+    constructor(title){
+        this._title = title;
     }
 
     get title(){
