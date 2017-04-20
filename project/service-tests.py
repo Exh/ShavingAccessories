@@ -34,5 +34,14 @@ class ShavingServiceTests(unittest.TestCase):
 
 		self.assertEqual(user.subscribing.interval.title, "Once Two Month")
 
+	def test_user_can_deactivate_subscribing(self):
+		product = ProductBuilder().withTitle("Shave + Gel + Aftershaves").create()
+		subscribing = Subscribing(product, OnceTwoMonth(1))
+		user = User(subscribing)
+		subscribing.active = false
+
+		self.assertEqual(subscribing.isActive(), false)
+
+
 if __name__ == '__main__':
 	unittest.main()
