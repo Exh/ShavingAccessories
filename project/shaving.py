@@ -52,6 +52,7 @@ class Subscribing(object):
 	def __init__(self, product = None, interval = None):
 		self._product = product
 		self._interval = interval
+		self._active = False
 
 	@property
 	def product(self):
@@ -68,6 +69,9 @@ class Subscribing(object):
 	@interval.setter
 	def interval(self, v):
 		self._interval = v
+
+	def isActive(self):
+		return self._active;
 
 
 class Product(object):

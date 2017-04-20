@@ -38,9 +38,9 @@ class ShavingServiceTests(unittest.TestCase):
 		product = ProductBuilder().withTitle("Shave + Gel + Aftershaves").create()
 		subscribing = Subscribing(product, OnceTwoMonth(1))
 		user = User(subscribing)
-		subscribing.active = false
 
-		self.assertEqual(subscribing.isActive(), false)
+		self.assertEqual(subscribing.isActive() == False, True)
+
 
 
 if __name__ == '__main__':
