@@ -1,13 +1,13 @@
 {
-  "_cocktaiName": "netology-xp-tdd-new-domain",
+  "_cocktaiName": "netology-xp-diploma",
   "version": "1.0.0",
-  "description": "XP. Test Driven Development. TDD New Domain.",
+  "description": "XP DIPLOMA",
   "scripts": {
     "test": "python projects/service-tests.py"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Exh/ShavingPython.git"
+    "url": "git+https://github.com/Exh/ShavingAccessories.git"
   },
   "keywords": [
     "XP",
@@ -16,7 +16,7 @@
     "smart-tdd",
     "js"
   ],
-  "author": "SmartStepGroup",
+  "author": "E.Tarasenko",
   "devDependencies": {
    
   }
