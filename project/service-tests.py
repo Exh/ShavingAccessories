@@ -11,5 +11,12 @@ class ShavingServiceTests(unittest.TestCase):
 
 		self.assertEqual(user.subscribing.product.title, "Shave")
 
+	def test_user_can_setup_Shave_and_Gel_as_product_of_subscribing(self):
+		product = Product()
+		subscribing = Subscribing(product)
+		user = User(subscribing)
+
+		self.assertEqual(user.subscribing.product.title, "Shave + Gel")
+
 if __name__ == '__main__':
 	unittest.main()
