@@ -1,5 +1,3 @@
-"use strick"
-
 class Product
 {
     constructor(id, title, price){
@@ -25,5 +23,6 @@ class Product
         return this._price;
     }
 }
-
-module.exports = Product;
+if (typeof module != "undefined") {
+    module.exports = Product;
+}

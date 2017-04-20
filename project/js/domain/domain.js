@@ -1,21 +1,26 @@
 "use strick"
 
 
-var Product = require('./product');
+
+if (require) {
+    console.log("Require product");
+
+    var Product = require('./product');
+}
 
 class Domain
 {
     static products(){
-        let product = [];
+        let products = [];
         console.log(products.length);
         let Shaver = createShaver();
         let Gel = createShaverWithGel();
         let Aftershaves = createShaverWithGelWithAftershaves();
-        product[Shaver.id] = Shaver;
-        product[Gel.id] = Gel
-        product[Aftershaves.id] = Aftershaves;
-        console.log(products.length);
-        return product;
+        products[Shaver.id] = Shaver;
+        products[Gel.id] = Gel
+        products[Aftershaves.id] = Aftershaves;
+        console.log(product.length);
+        return products;
     }
 
     static createShaver()
@@ -33,6 +38,6 @@ class Domain
     }
 }
 
-Domain.products = [];
-
-module.exports = Domain;
+if (typeof module != "undefined") {
+    module.exports = Domain;
+}
