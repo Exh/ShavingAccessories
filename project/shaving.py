@@ -1,25 +1,35 @@
+from datetime import date
+
 class Interval():
-	pass
+	@property
+	def days(self):
+		return self._days
+
 
 class OnceTwoMonth(Interval):
-	def __init__(self):
+	def __init__(self, day):
 		self._title = "Once Two Month"
+		self._days = [day]
 
 	@property
 	def title(self):
 		return self._title
 
+
+
 class OnceAMonth(Interval):
-	def __init__(self):
+	def __init__(self, day):
 		self._title = "Once A Month"
+		self._days = [day]
 
 	@property
 	def title(self):
 		return self._title
 
 class TwiceAMonth(Interval):
-	def __init__(self):
+	def __init__(self, day1, day2):
 		self._title = "Twice A Month"
+		self._days = [day1, day2]
 
 	@property
 	def title(self):

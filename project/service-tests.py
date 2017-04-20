@@ -29,7 +29,7 @@ class ShavingServiceTests(unittest.TestCase):
 
 	def test_user_can_setup_once_two_month_as_shipping_interval_of_subscribing(self):
 		product = ProductBuilder().withTitle("Shave + Gel + Aftershaves").create()
-		subscribing = Subscribing(product, OnceTwoMonth())
+		subscribing = Subscribing(product, OnceTwoMonth(1))
 		user = User(subscribing)
 
 		self.assertEqual(user.subscribing.interval.title, "Once Two Month")
