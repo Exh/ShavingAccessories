@@ -1,29 +1,23 @@
 {
+  "_cocktaiName": "netology-xp-tdd-new-domain",
   "version": "1.0.0",
-  "description": "XP SHAVING ACCESSORIES",
+  "description": "XP. Test Driven Development. TDD New Domain.",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --ui tdd -R spec project/tests/*.js"
+    "test": "python projects/service-tests.py"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Exh/ShavingAccessories.git"
+    "url": "git+https://github.com/Exh/ShavingPython.git"
   },
   "keywords": [
     "XP",
     "test-driven-development",
-    "js",
-    "CI"
+    "new-domain",
+    "smart-tdd",
+    "js"
   ],
-  "author": "Tarasenko Evgeniy",
+  "author": "SmartStepGroup",
   "devDependencies": {
-    "mocha": "~2.4.5",
-    "chai": "~3.5.0",
-    "chai-http": "~2.0.1",
-    "chai-string": "~1.2.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "cookie-parser": "^1.4.3",
-    "multer": "^1.3.0"
+   
   }
 }

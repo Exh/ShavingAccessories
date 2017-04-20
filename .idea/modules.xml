@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShavingAccessories.iml" filepath="$PROJECT_DIR$/.idea/ShavingAccessories.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ShavingPython.iml" filepath="$PROJECT_DIR$/.idea/ShavingPython.iml" />
     </modules>
   </component>
 </project>
