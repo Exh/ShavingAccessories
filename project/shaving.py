@@ -56,7 +56,7 @@ class ProductBuilder(object):
 		return Product(self._title, self._price)
 
 	def withTitle(self, title):
-		self._title = age
+		self._title = title
 		return self
 
 	def withPrice(self, price):
