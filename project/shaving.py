@@ -23,3 +23,16 @@ class Subscribing(object):
 	@product.setter
 	def product(self, v):
 		self._product = v
+
+
+class Product(object):
+	def __init__(self):
+		self._title = "Shave"
+
+	@property
+	def title(self):
+		return self._title
+
+	@title.setter
+	def title(self, v):
+		self._title = v
