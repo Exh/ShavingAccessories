@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app = "shavingAccessoriesApp">
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js">
+</script>
+<title>Shaving Accessories</title>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+<div  ng-controller="HelloController">
+    <label>Name:</label>
+    <input type = "text" ng-model = "yourName" placeholder = "Enter a name here">
+    <hr />
+
+    <h1  ng-click ="c=c+1" >Hello {{ResultName()}}!</h1>
+    <p>Click {{c}}</p>
+    <p ng-click="hideText=!hideText">Hide Right</p><p ng-hide="hideText">TEXT</p><p ng-show="showText">TEXT 2</p><p ng-click="showText=!showText">Show Left</p>
+    <div ng-include = "'checkInclude.html'"></div>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Count</th>
+        </tr>
+
+        <tr ng-repeat = "subject in base">
+            <td>{{ subject.title }}</td>
+            <td>{{ subject.count }}</td>
+        </tr>
+    </table>
+
+</div>
+<script>
+    var mainApp = angular.module("shavingAccessoriesApp", []);
+    mainApp.controller('HelloController', function($scope) {
+        $scope.base = [{title:"Razor", count:4}, {title:"Razor+Cream", count:2}, {title:"Razon+Cream+Balm", count:3}];
+        $scope.ResultName = function() {
+            var yN = typeof $scope.yourName != "undefined" ? $scope.yourName : "";
+            return yN + ' World' };
+    });
+
+</script>
+</body>
+</html>

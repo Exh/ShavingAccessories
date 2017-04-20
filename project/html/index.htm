@@ -1,14 +1,55 @@
-<html>
+<!doctype html>
+<html ng-app = "shavingAccessoriesApp">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js">
+</script>
+    <script src="../js/domain/domain.js">
+    </script>
+<title>Shaving Accessories</title>
+
 </head>
+
 <body>
+<div  ng-controller="ProductController" >
 
-<form action = "http://127.0.0.1:8081/process_post" method = "POST">
-    First Name: <input type = "text" name = "first_name">  <br>
-    Last Name: <input type = "text" name = "last_name">
-    <input type = "submit" value = "Submit">
-</form>
+      <p>Product:
+        <select ng-model="selectedProduct">
+            <option disabled selected>Choose product</option>
+            <option ng-repeat="x in products" value="{{x.id}}">{{x.title}}</option>
+        </select>
+    </p>
+    <p ng-show="selectedProduct">
+        Price: {{selectedProductPrice()}}
+    </p>
+    <p>
+        
+    </p>
+</div>
+<script>
+    var mainApp = angular.module("shavingAccessoriesApp", []);
+    mainApp.controller('ProductController', function($scope) {
+//        var products = [{id: "", title:"Choose product", selectable:"disabled"}];
+//        for(product in )
+//        {
+//            products.push({id: product.id, title: product.title, selectable:""});
+//        }
+        $scope.products = Domain.products();
+        console.log($scope.products.length);
 
+            $scope.selectedProductPrice = function() {
+                var price = typeof $scope.selectedProduct != "undefined" ? $scope.products[$scope.selectedProduct].price : "";
+                return price;
+                //            $scope.startNewProduct = true;
+//            console.log($scope.startNewProduct);
+        }
+    });
+
+</script>
 </body>
 </html>
