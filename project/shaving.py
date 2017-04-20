@@ -1,3 +1,29 @@
+class Interval():
+	pass
+
+class OnceTwoMonth(Interval):
+	def __init__(self):
+		self._title = "Once Two Month"
+
+	@property
+	def title(self):
+		return self._title
+
+class OnceAMonth(Interval):
+	def __init__(self):
+		self._title = "Once A Month"
+
+	@property
+	def title(self):
+		return self._title
+
+class TwiceAMonth(Interval):
+	def __init__(self):
+		self._title = "Twice A Month"
+
+	@property
+	def title(self):
+		return self._title
 
 class User(object):
 	def __init__(self, subscribing = None):
@@ -13,8 +39,9 @@ class User(object):
 
 
 class Subscribing(object):
-	def __init__(self, product = None):
+	def __init__(self, product = None, interval = None):
 		self._product = product
+		self._interval = interval
 
 	@property
 	def product(self):
@@ -23,6 +50,14 @@ class Subscribing(object):
 	@product.setter
 	def product(self, v):
 		self._product = v
+
+	@property
+	def interval(self):
+		return self._interval
+
+	@interval.setter
+	def interval(self, v):
+		self._interval = v
 
 
 class Product(object):

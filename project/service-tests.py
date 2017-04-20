@@ -3,6 +3,7 @@ from shaving import User
 from shaving import Subscribing
 from shaving import Product
 from shaving import ProductBuilder
+from shaving import OnceTwoMonth
 
 class ShavingServiceTests(unittest.TestCase):
 	def test_user_can_setup_Shave_as_product_of_subscribing(self):
@@ -25,6 +26,13 @@ class ShavingServiceTests(unittest.TestCase):
 		user = User(subscribing)
 
 		self.assertEqual(user.subscribing.product.title, "Shave + Gel + Aftershaves")
+
+	def test_user_can_setup_once_two_month_as_shipping_interval_of_subscribing(self):
+		product = ProductBuilder().withTitle("Shave + Gel + Aftershaves").create()
+		subscribing = Subscribing(product, OnceTwoMonth())
+		user = User(subscribing)
+
+		self.assertEqual(user.subscribing.interval.title, "Once Two Month")
 
 if __name__ == '__main__':
 	unittest.main()
