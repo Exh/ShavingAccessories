@@ -39,7 +39,7 @@ class ShavingServiceTests(unittest.TestCase):
 		subscribing = Subscribing(product, OnceTwoMonth(1))
 		user = User(subscribing)
 
-		self.assertEqual(subscribing.isActive() == False, True)
+		self.assertEqual(subscribing.isActive(), False)
 
 
 
