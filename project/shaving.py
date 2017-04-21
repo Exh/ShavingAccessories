@@ -1,39 +1,55 @@
 from datetime import date
 
 class Interval():
+	def __init__(self):
+		self._title=""
+
+
+
+class OnceTwoMonth():
+	def __init__(self, day):
+		self._title = "Once Two Month"
+		self._days = [day]
+		self._offset = 2
+
+	@property
+	def title(self):
+		return self._title
+
 	@property
 	def days(self):
 		return self._days
 
 
-class OnceTwoMonth(Interval):
-	def __init__(self, day):
-		self._title = "Once Two Month"
-		self._days = [day]
-
-	@property
-	def title(self):
-		return self._title
-
-
-
-class OnceAMonth(Interval):
+class OnceAMonth():
 	def __init__(self, day):
 		self._title = "Once A Month"
 		self._days = [day]
+		self._offset = 1
 
 	@property
 	def title(self):
 		return self._title
 
-class TwiceAMonth(Interval):
-	def __init__(self, day1, day2):
+	@property
+	def days(self):
+		return self._days
+
+
+class TwiceAMonth():
+	def __init__(self, day):
 		self._title = "Twice A Month"
-		self._days = [day1, day2]
+		self._days = [day, day + 15]
+		self._offset = 0
 
 	@property
 	def title(self):
 		return self._title
+
+	@property
+	def days(self):
+		return self._days
+
 
 class User(object):
 	def __init__(self, subscribing = None):
@@ -53,6 +69,15 @@ class Subscribing(object):
 		self._product = product
 		self._interval = interval
 		self._active = False
+		self._startDate = date()
+
+	@property
+	def start_date(self):
+		return self._startDate
+
+	@start_date.setter
+	def start_date(self, d):
+		self._startDate = d
 
 	@property
 	def product(self):
@@ -111,3 +136,4 @@ class ProductBuilder(object):
 	def withPrice(self, price):
 		self._price = price
 		return self
+
