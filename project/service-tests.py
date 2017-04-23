@@ -4,6 +4,8 @@ from shaving import Subscribing
 from shaving import Product
 from shaving import ProductBuilder
 from shaving import OnceTwoMonth
+from datetime import date
+
 
 class ShavingServiceTests(unittest.TestCase):
 	def test_user_can_setup_Shave_as_product_of_subscribing(self):
@@ -39,15 +41,16 @@ class ShavingServiceTests(unittest.TestCase):
 		subscribing = Subscribing(product, OnceTwoMonth(1))
 		user = User(subscribing)
 
-		self.assertEqual(subscribing.isActive(), False)
+		self.assertEqual(subscribing.isActive, False)
 
 	def test_user_can_setup_shave_as_product_once_a_month_as_shipping_interval_start_date_14_jan_2017_to_14_jan_2017_spend_money_is_1(self):
 		product = ProductBuilder().withTitle("Shave").withPrice(1).create()
 		subscribing = Subscribing(product, OnceTwoMonth(14))
-		subscribing.start_date = date(2017, 1, 14)
+		subscribing.startDate = date(2017, 1, 14)
 		user = User(subscribing)
+		user.updateCurrentDate(date(2017, 1, 14))
 
-		self.assertEqual()
+		self.assertEqual(user.spendCash, 1)
 
 if __name__ == '__main__':
 	unittest.main()

@@ -1,12 +1,7 @@
 from datetime import date
 
-class Interval():
-	def __init__(self):
-		self._title=""
 
-
-
-class OnceTwoMonth():
+class OnceTwoMonth:
 	def __init__(self, day):
 		self._title = "Once Two Month"
 		self._days = [day]
@@ -21,7 +16,7 @@ class OnceTwoMonth():
 		return self._days
 
 
-class OnceAMonth():
+class OnceAMonth:
 	def __init__(self, day):
 		self._title = "Once A Month"
 		self._days = [day]
@@ -36,7 +31,7 @@ class OnceAMonth():
 		return self._days
 
 
-class TwiceAMonth():
+class TwiceAMonth:
 	def __init__(self, day):
 		self._title = "Twice A Month"
 		self._days = [day, day + 15]
@@ -52,8 +47,10 @@ class TwiceAMonth():
 
 
 class User(object):
-	def __init__(self, subscribing = None):
+	def __init__(self, subscribing=None, create_day=date.today()):
 		self._subscribing = subscribing
+		self._spendCash = 0
+		self._currentDate = create_day
 
 	@property
 	def subscribing(self):
@@ -63,20 +60,28 @@ class User(object):
 	def subscribing(self, v):
 		self._subscribing = v
 
+	def updateCurrentDate(self, new_date):
+		self._spendCash += self._subscribing.getCostForPeriod(self._currentDate, new_date)
+		self._currentDate = new_date
+
+	@property
+	def spendCash(self):
+		return self._spendCash
+
 
 class Subscribing(object):
-	def __init__(self, product = None, interval = None):
+	def __init__(self, product = None, interval = None, d = None):
 		self._product = product
 		self._interval = interval
 		self._active = False
-		self._startDate = date()
+		self._startDate = d
 
 	@property
-	def start_date(self):
+	def startDate(self):
 		return self._startDate
 
-	@start_date.setter
-	def start_date(self, d):
+	@startDate.setter
+	def startDate(self, d):
 		self._startDate = d
 
 	@property
@@ -95,8 +100,12 @@ class Subscribing(object):
 	def interval(self, v):
 		self._interval = v
 
+	@property
 	def isActive(self):
-		return self._active;
+		return self._active
+
+	def getCostForPeriod(self, start, finish):
+		return 1
 
 
 class Product(object):
@@ -112,7 +121,6 @@ class Product(object):
 	def title(self, v):
 		self._title = v
 
-
 	@property
 	def price(self):
 		return self._price
@@ -120,6 +128,7 @@ class Product(object):
 	@price.setter
 	def price(self, v):
 		self._price = v
+
 
 class ProductBuilder(object):
 	def __init__(self):
