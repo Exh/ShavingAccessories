@@ -52,5 +52,15 @@ class ShavingServiceTests(unittest.TestCase):
 
 		self.assertEqual(user.spendCash, 1)
 
+	def test_user_can_setup_shave_and_gel_as_product_once_a_month_as_shipping_interval_start_date_14_jan_2017_to_14_jan_2017_spend_money_is_9(self):
+		product = ProductBuilder().withTitle("Shave + Gel").withPrice(9).create()
+		subscribing = Subscribing(product, OnceTwoMonth(14))
+		subscribing.startDate = date(2017, 1, 14)
+		user = User(subscribing, date(2017, 1, 10))
+		user.updateCurrentDate(date(2017, 1, 14))
+
+		self.assertEqual(user.spendCash, 9)
+
+
 if __name__ == '__main__':
 	unittest.main()
